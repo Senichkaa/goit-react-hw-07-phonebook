@@ -6,7 +6,6 @@ import { DeleteButton } from '../App.styled';
 
 import { fetchContacts, deleteContact } from 'redux/operations';
 import {
-  // selectAllContacts,
   selectContacts,
   selectError,
   selectFilter,
@@ -24,7 +23,6 @@ export const ContactList = () => {
 
   // console.log(contacts);
   // console.log(filter);
-
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );

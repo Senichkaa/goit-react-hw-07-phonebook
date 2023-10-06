@@ -46,7 +46,8 @@ export const ContactForm = () => {
       addContact({
         name: name,
         number: number,
-      })
+      }),
+      console.log('Додано новий контакт:', { name, number })
     );
 
     setName('');
