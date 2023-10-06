@@ -2,9 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
 import { pendingHandle, rejectedHandle, fulfilledHandle } from './handlers';
 
-const contactList = createSlice({
+const contactSlice = createSlice({
     name: 'contacts',
-    initialState,
+    initialState: {
+    items: [],
+    isLoading: false,
+    error: null,
+    },
     extraReducers: {
         [fetchContacts.pending]:pendingHandle,
         [fetchContacts.fulfilled](state, {payload}) {
@@ -34,7 +38,7 @@ const contactList = createSlice({
     
 })
 
-export const tasksReducer = contactSlice.reducer;
+export const contactsReducer = contactSlice.reducer;
 
 
 

@@ -1,12 +1,14 @@
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { Form, Input, Button } from '../App.styled';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, getContacts } from 'redux/contactsSlice';
+// import { addContact, getContacts } from 'redux/contactsSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -28,7 +30,7 @@ export const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const id = nanoid();
+    // const id = nanoid();
 
     if (
       contacts.find(newContact =>
@@ -42,7 +44,6 @@ export const ContactForm = () => {
     }
     dispatch(
       addContact({
-        id,
         name: name,
         number: number,
       })
